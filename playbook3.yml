@@ -1,0 +1,11 @@
+- hosts: ubuntu
+  tasks: 
+    - name: install proftpd, bind9, mariadb-server, git
+      apt: 
+        name: "{{ item }}"
+        state: present
+      loop:
+      - proftpd
+      - bind9
+      - mariadb-server
+      - git

@@ -1,0 +1,14 @@
+- hosts: server
+  tasks: 
+    - name: install samba centos
+      yum: 
+        name: samba
+        state: present
+      when: 
+      - ansible_distribution == "CentOS"
+    - name: install samba ubuntu
+      apt:
+        name: samba
+        state: present
+      when:
+      - ansible_distribution == "Ubuntu"
